@@ -1,0 +1,17 @@
+version: v1.0
+name: semaphore-testing
+agent:
+  machine:
+    type: e1-standard-2
+blocks:
+  - name: 'Testing'
+    task:
+      prologue:
+        commands:
+          - checkout
+      jobs:
+        - name: 'Testing'
+          commands:
+            - uname -a
+            - echo $SEMAPHORE_GIT_REF_TYPE
+            - echo $SEMAPHORE_GIT_REF
